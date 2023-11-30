@@ -1,0 +1,18 @@
+version: '3.9'
+services: 
+  web:
+    container_name: "webku-container"
+    build: .
+    working_dir: /app/myweb
+    command: python manage.py runserver --settings=myweb.settings 0.0.0.0:8000
+    volumes:  
+      - .:/app 
+       
+    ports:
+      - 8000:8000 
+    networks:
+      - django-myweb
+networks: 
+    django-myweb:
+volumes:
+  data:

@@ -1,0 +1,21 @@
+# Gunakan base image Python resmi dari Docker Hub 
+FROM python:3.10-slim 
+# Atur direktori kerja di dalam image 
+WORKDIR /app
+# Salin file `requirements.txt` dan instal dependensi Python 
+COPY requirements.txt . 
+RUN pip install --no-cache-dir -r requirements.txt 
+# Salin proyek Django ke dalam image 
+COPY . .
+ # Berikan izin untuk skrip entrypoint 
+COPY ./entrypoint.sh /usr/src/app/entrypoint.sh 
+RUN chmod +x /usr/src/app/entrypoint.sh 
+# Atur variabel lingkungan 
+ENV PYTHONDONTWRITEBYTECODE 1 
+ENV PYTHONUNBUFFERED 1
+ # Ekspose port dimana aplikasi akan berjalan 
+EXPOSE 8000 
+# Atur skrip entrypoint 
+ENTRYPOINT ["/usr/src/app/entrypoint.sh"] 
+# Jalankan server Django saat container di-start 
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "project.wsgi:application"] 
