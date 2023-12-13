@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-
+from apps.dashboard.views import *
 
 
 urlpatterns = [
@@ -26,4 +26,6 @@ urlpatterns = [
     path('apia/', include('api.v1.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('item/', item, name='item'),
+
 ] 
