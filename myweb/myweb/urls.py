@@ -26,6 +26,6 @@ urlpatterns = [
     path('apia/', include('api.v1.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('item/', item, name='item'),
+    path('index/', index, name='index'),
     path('login/', login, name='login'),
 ] 

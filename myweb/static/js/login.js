@@ -1,34 +1,34 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
+document.getElementById('loginForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
     const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+    const password = document.getElementById('password-field').value;
     const messageDiv = document.getElementById('message');
 
-    fetch('http://127.0.0.1:8000/api/token/', {
+    fetch('http://localhost:8000/api/token/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({username, password})
     })
     .then(response => {
-        if(!response.ok){
-            throw new Error('Login failed');
+        if (!response.ok) {
+            throw new Error('Login Failed')
         }
+
         return response.json();
     })
-    .then(data =>{
-        if(data.access){
+    .then(data => {
+        if (data.access) {
             localStorage.setItem('accessToken', data.access);
-            messageDiv.textContent = 'Login sucessfull!';
+            messageDiv.textContent = 'Login Successfull!';
             messageDiv.style.color = 'green';
-            // Redirect atau update UI setelah login sukses
-            // window.local.href = '$PATH:item.html'
+
+            window.location.href = './index.html'
         }
     })
     .catch(error => {
-        console.error('Error:', error);
+        console.error('Error : ', error);
         messageDiv.textContent = 'Login failed: Invalid username or password';
         messageDiv.style.color = 'red';
-    })
-});
-
+    });
+})

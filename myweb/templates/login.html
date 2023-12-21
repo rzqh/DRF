@@ -1,41 +1,90 @@
-<!DOCTYPE html>
-<html lang="en" >
+<!doctype html>
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - Elegant Login Form with ParticlesJS (with form validation and show/hide password)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'>
-<link rel="stylesheet" href="/home/rzqhh/Downloads/DRF/myweb/static/css/style.css">
-<!-- <link rel="stylesheet" href="{% static 'your_app/css/your_style.css' %}"> -->
+    <title>Login 05</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../static/css/style.css">
 
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<body id="particles-js"></body>
-<div class="animated bounceInDown">
-  <div class="container">
-    <span class="error animated tada" id="msg"></span>
-    <form id="loginForm" name="form1" class="box" method="post">
-      <h4>Admin<span>Dashboard</span></h4>
-      <h5>Sign in to your account.</h5>
-      <p class="text-center" id='message'></p>
-        <input id="username" type="text" name="username" placeholder="username">
-        <i class="typcn typcn-eye" id="eye"></i>
-        <input id="password" type="password" name="password" placeholder="Passsword" id="pwd">
-        <label>
-          <input type="checkbox">
-          <span></span>
-          <small class="rmb">Remember me</small>
-        </label>
-        <a href="#" class="forgetpass">Forget Password?</a>        
-        <input type="submit" value="Sign in" class="btn1">
-      </form>
-        <a href="#" class="dnthave">Don’t have an account? Sign up</a>  
-</div>
-<!-- partial -->
-  <!--<script src='https://cldup.com/S6Ptkwu_qA.js'></script> -->
-  <script  src="/home/rzqhh/Downloads/DRF/myweb/static/js/login.js"></script>  
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Login</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 col-lg-5">
+                    <div class="wrap">
+                        <div class="img" style="background-image: url(../static/images/bg-1.jpg);"></div>
+                        <div class="login-wrap p-4 p-md-5">
+                            <div class="d-flex">
+                                <div class="w-100">
+                                    <h3 class="mb-4">Sign In</h3>
+                                </div>
+                                <!-- <div class="w-100">
+                                    <p class="social-media d-flex justify-content-end">
+                                        <a href="#"
+                                            class="social-icon d-flex align-items-center justify-content-center"><span
+                                                class="fa fa-facebook"></span></a>
+                                        <a href="#"
+                                            class="social-icon d-flex align-items-center justify-content-center"><span
+                                                class="fa fa-twitter"></span></a>
+                                    </p>
+                                </div> -->
+                            </div>
+                            <form method="post" id="loginForm" class="signin-form">
+                                <div class="form-group mt-3">
+                                    <input type="text" class="form-control" id="username" required>
+                                    <label class="form-control-placeholder" for="username">Username</label>
+                                </div>
+                                <div class="form-group">
+                                    <input id="password-field" type="password" class="form-control" required>
+                                    <label class="form-control-placeholder" for="password">Password</label>
+                                    <span toggle="#password-field"
+                                        class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                </div>
+
+                                <p class="text-center" id="message"></p>
+                                <div class="form-group">
+                                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign
+                                        In</button>
+                                </div>
+                                <div class="form-group d-md-flex">
+                                    <div class="w-50 text-left">
+                                        <label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+                                            <input type="checkbox" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="w-50 text-md-right">
+                                        <a href="#">Forgot Password</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <p class="text-center">Not a member? <a data-toggle="tab" href="#signup">Sign Up</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/popper.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/login.js"></script>
+
 </body>
+
 </html>
