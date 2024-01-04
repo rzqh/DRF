@@ -30,4 +30,32 @@ function displayItems (items) {
         `
         itemsContainer.appendChild(itemElement);
     });
+
+    // tambahkan event listner ke tombol update    
+    document.querySelectorAll('.update-btn').forEach(button =>{
+        button.addEventListener('click', function(){
+            openUpdateModal(this.getAttribute('data-id'));
+        });
+    });
+}
+
+function openUpdateModal(id){
+    // Ambil data item dari API atau dari list yang sudah ada
+    const token = localStorage.getItem('accessToken');
+    fetch(`http://127.0.0.1:8000/apia/item/${id}`, {
+        headers: {
+         'Authorization': `Bearer ${token}`
+        }
+    })
+
+    .then(response => response.json())
+    .then(data => {
+        // isi formulir di modal dengan data yyang ada
+        document.getElementById('updateItemName').value = data.name;
+        document.getElementById('updateItemDescription').value = data.description;
+        document.getElementById('updateItemId').value = data.id;
+        // tampilkan modal
+        $('#updateItemModal').modal('show');            
+    })
+    .catch(error => console.error('Error:', error));
 }

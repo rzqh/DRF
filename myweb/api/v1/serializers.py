@@ -4,5 +4,5 @@ from apps.dashboard.models import Item
 class ItemSerializer(ModelSerializer):
     class Meta:
         model = Item
-        fields = ['name','description']
+        fields = ['id', 'name','description']
     
