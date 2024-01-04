@@ -21,7 +21,8 @@ document.getElementById('addItemForm').addEventListener('submit', function (even
         console.log('Success', data);
 
         $('#addItemModal').modal('hide');
-        fetchItems();
+        location.reload();
+
     })
     .catch(error => {
         console.error('Error : ', error);

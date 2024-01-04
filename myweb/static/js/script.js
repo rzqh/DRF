@@ -22,11 +22,10 @@ function displayItems (items) {
         const itemElement = document.createElement('div');
         itemElement.classList.add('col-md-6');
         itemElement.innerHTML = `
-            <div class="card mb-4">
-                <div class="card mb-4">
-                    <h5 class="card-title"> ${item.name}</h5>
-                    <p class="card-text">${item.description}</p>
-                </div>
+            <div class="card mb-4">                
+                <h5 class="card-title"> ${item.name}</h5>
+                <p class="card-text">${item.description}</p>                
+                <button class="btn btn-primary update-btn" data-id="${item.id}"><i class="fas fa-edit"></i> Update </button>
             </div>
         `
         itemsContainer.appendChild(itemElement);
